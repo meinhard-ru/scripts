@@ -29,8 +29,10 @@ function main()
 end
 
 function sampev.onApplyPlayerAnimation(id, _, animName)
-    if isActive and (animName == 'crckdeth1' or 'crckdeth3' or 'crckidle3' or 'EAT_Burger') and id == select(2, sampGetPlayerIdByCharHandle(PLAYER_PED)) then
-        return false
+    if isActive and id == select(2, sampGetPlayerIdByCharHandle(PLAYER_PED)) then
+        if animName == 'crckdeth1' or animName == 'crckdeth3' or animName == 'crckidle3' or animName == 'EAT_Burger' then
+            return false
+        end
     end
 end
 
