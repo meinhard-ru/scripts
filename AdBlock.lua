@@ -33,8 +33,8 @@ local WinState = imgui.new.bool(false)
 
 imgui.OnFrame(function() return WinState[0] end, function(player)
     imgui.SetNextWindowPos(imgui.ImVec2(500,500), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
-    imgui.SetNextWindowSize(imgui.ImVec2(465,200), imgui.Cond.Always)
-    imgui.Begin('Samp-RP AdBlock', WinState, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoScrollbar + imgui.WindowFlags.NoCollapse)
+    imgui.SetNextWindowSize(imgui.ImVec2(465,205), imgui.Cond.Always)
+    imgui.Begin('AdBlock', WinState, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoScrollbar + imgui.WindowFlags.NoCollapse)
     SoftBlueTheme()
 
     if isActive[0] then
@@ -50,6 +50,7 @@ imgui.OnFrame(function() return WinState[0] end, function(player)
     end
 
     if isActive[0] then
+        imgui.Separator()
         if imgui.Checkbox(u8'Блокировка объявлений', isNews) then 
             settingsScript.settings.isNews = isNews[0]
             inicfg.save(settingsScript, settingsSource)
@@ -116,7 +117,7 @@ function sampev.onServerMessage(color, message)
 end
 
 function userNotification(userNotificationText)
-    sampAddChatMessage("[Samp-RP]{DDA0DD} AdBlock: {FFFFFF}"..userNotificationText, 0x9966CC)
+    sampAddChatMessage("[AdBlock] {FFFFFF}"..userNotificationText, 0xDDA0DD)
 end
 
 function SoftBlueTheme()
