@@ -62,6 +62,11 @@ function onUserDeath()
             if isGasmask and isNotification then
                 userNotification('Противогаз уже в инвентаре, сохранение не требуется')
             elseif not isGasmask then
+                freezeCharPosition(PLAYER_PED, true)
+                freezeCharPosition(PLAYER_PED, false)
+                setPlayerControl(PLAYER_HANDLE, true)
+                restoreCameraJumpcut()
+                clearCharTasksImmediately(PLAYER_PED)
                 sampSendChat('/gasmask')
                 if isNotification then
                     userNotification('Скрипт сработал, если был надет противогаз - он сохранился')
@@ -84,5 +89,5 @@ function sampev.onShowTextDraw(id, data)
 end
 
 function userNotification(userNotificationText)
-    sampAddChatMessage("[Samp-RP]{00FF7F} SafeGasmask: {FFFFFF}"..userNotificationText, 0x9966CC)
+    sampAddChatMessage("[SafeGasmask] {FFFFFF}"..userNotificationText, 0x6495ED)
 end
