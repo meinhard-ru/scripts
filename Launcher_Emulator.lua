@@ -18,8 +18,8 @@ local carID = settingsScript.settings.carID
 
 updateState = false;
 
-local scriptVersion = 4
-local scriptVersionText = '1.03'
+local scriptVersion = 5
+local scriptVersionText = '1.04'
 
 local updateSource = "https://raw.githubusercontent.com/meinhard-ru/scripts/refs/heads/main/Launcher_Emulator_Update.ini"
 local updatePath = getWorkingDirectory() .. "Launcher_Emulator_Update.ini"
